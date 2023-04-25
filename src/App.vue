@@ -2,6 +2,8 @@
 import { CheckCircleIcon } from '@heroicons/vue/24/solid'
 import { ClockIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outline'
 
+const navItems = ['timeline', 'activities', 'progress']
+
 </script>
 
 <template>
@@ -22,23 +24,20 @@ import { ClockIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outli
 		</a>
 	</header>
 	<main class="flex flex-grow flex-col">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit ex ipsum libero optio, perferendis nemo deserunt eum, molestias quibusdam qui soluta, magnam veritatis molestiae nisi aperiam maiores voluptatibus dolores eos! Lorem800
 	</main>
 	<nav class="sticky bottom-0 z-10 bg-white">
 		<ul class="flex items-center justify-around border-t">
-			<li class="flex-1">
-				<a class="flex flex-col items-center p-2 text-xs capitalize" href="#timeline">
-					<ClockIcon class="h-6 w-6" /> Timeline
-				</a>
-			</li>
-			<li class="flex-1">
-				<a class="flex flex-col items-center p-2 text-xs capitalize" href="#activities">
-					<ListBulletIcon class="h-6 w-6" /> Activities
-				</a>
-			</li>
-			<li class="flex-1">
-				<a class="flex flex-col items-center p-2 text-xs capitalize" href="#progress">
-					<ChartBarIcon class="h-6 w-6" /> Progress
+
+			<li
+				v-for="item in navItems"
+				:key="item"
+				class="flex-1"
+			>
+				<a class="flex flex-col items-center p-2 text-xs capitalize" :href="`#${item}`">
+					<ClockIcon v-if="item === 'timeline'" class="h-6 w-6" /> 
+					<ListBulletIcon v-else-if="item === 'activities'" class="h-6 w-6" /> 
+					<ChartBarIcon v-else-if="item === 'progress'" class="h-6 w-6" /> 
+					{{ item }}
 				</a>
 			</li>
 		</ul>

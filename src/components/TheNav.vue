@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue';
 import { ClockIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outline'
 import NavItem from './NavItem.vue'
 
@@ -7,6 +8,8 @@ const navItems = {
 	activities: ListBulletIcon, 
 	progress: ChartBarIcon
 }
+
+const currentPage = ref('timeline')
 
 </script>
 
@@ -17,6 +20,8 @@ const navItems = {
 			v-for="(icon, item) in navItems"
 			:key="item"
 			:href="`#${item}`"
+			:class="{ 'bg-gray-200 pointer-events-none': item === currentPage }"
+			@click="currentPage = item"
 			>
 				<component :is="icon" class="h-6 w-6" /> {{ item }}
 			</NavItem>

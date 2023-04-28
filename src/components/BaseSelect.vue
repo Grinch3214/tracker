@@ -1,4 +1,5 @@
-<script setup> 
+<script setup>
+import BaseButton from './BaseButton.vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline';
 
 defineProps(['options', 'placeholder', 'selected'])
@@ -6,9 +7,9 @@ defineProps(['options', 'placeholder', 'selected'])
 
 <template>
 	<div class="flex gap-2">
-			<button class="rounded bg-gray-100 p-3 enabled:hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50">
+			<BaseButton>
 				<XMarkIcon class="h-8" />
-			</button>
+			</BaseButton>
 			<select class="w-full truncate rounded bg-gray-100 py-1 px-2 text-2xl">
 				<option selected disabled value="">{{ placeholder }}</option>
 				<option v-for="{value, label} in options" :key="value" value="value" :selected="value === selected">{{ label }}</option>

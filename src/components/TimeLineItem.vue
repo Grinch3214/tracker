@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import BaseSelect from './BaseSelect.vue'
 
 const props = defineProps(['timelineItem'])
@@ -16,7 +17,7 @@ const options = [
 	{ value: 3, label: 'Training' }
 ]
 
-const selectedActivityId = 2
+const selectedActivityId = ref(1)
 </script>
 
 <template>
@@ -24,6 +25,6 @@ const selectedActivityId = 2
 		class="relative flex flex-col gap-2 border-t border-gray-200 py-10 px-4"
 	>
 		<a href="#" :class="ourLinkClasses">{{ timelineItem.hour }}:00</a>
-		<BaseSelect :selected="selectedActivityId" :options="options" placeholder="Rest" />
+		<BaseSelect :selected="selectedActivityId" :options="options" placeholder="Rest" @select="selectedActivityId = $event" />
 	</li>
 </template>

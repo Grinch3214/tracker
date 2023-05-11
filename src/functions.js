@@ -19,3 +19,7 @@ export function generateTimeLineItems() {
 
 	return timeloneItems
 }
+
+export function generateActivitySelectOptions(activities) {
+	return activities.map((label, value) => ({	label, value}))
+}

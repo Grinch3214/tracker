@@ -1,7 +1,16 @@
 <script setup>
 import TimeLineItem from '../components/TimeLineItem.vue'
 
-defineProps(['timelineItems'])
+defineProps({
+	timelineItems: {
+		required: true,
+		type: Array
+	},
+	activitySelectOptions: {
+		required: true,
+		type: Array
+	}
+})
 </script>
 
 <template>
@@ -11,6 +20,7 @@ defineProps(['timelineItems'])
 				v-for="timelineItem in timelineItems"
 				:key="timelineItem.hour"
 				:timeline-item="timelineItem"
+				:activity-select-options="activitySelectOptions"
 			/>
 		</ul>
 	</div>

@@ -1,8 +1,12 @@
 <script setup>
 import ActivityItem from '../components/ActivityItem.vue'
 
-const activities = ['Coding', 'Reading', 'Training']
-
+defineProps({
+	activities: {
+		required: true,
+		type: Array
+	}
+})
 </script>
 
 <template>

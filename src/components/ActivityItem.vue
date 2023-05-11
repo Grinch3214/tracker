@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue'
-import BaseButton from '../components/BaseButton.vue'
 import { TrashIcon } from '@heroicons/vue/24/outline'
+import { PERIOD_SELECT_OPTIONS } from '../constans'
+import BaseButton from '../components/BaseButton.vue'
 import BaseSelect from '../components/BaseSelect.vue'
 
 defineProps({
@@ -10,12 +11,6 @@ defineProps({
 		type: String
 	}
 })
-
-const periodSelectOptions = [
-	{ value: 15, label: '0:15' },
-	{ value: 30, label: '0:30' },
-	{ value: 45, label: '0:45' }
-]
 
 const secondsToComplete = ref(15)
 </script>
@@ -30,7 +25,7 @@ const secondsToComplete = ref(15)
 		</div>
 		<div>
 			<BaseSelect
-				:options="periodSelectOptions"
+				:options="PERIOD_SELECT_OPTIONS"
 				:selected="secondsToComplete"
 				@select="secondsToComplete = $event"
 				class="font-mono"

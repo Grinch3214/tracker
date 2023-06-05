@@ -7,12 +7,18 @@ defineProps({
 		type: Array
 	}
 })
+const emit = defineEmits(['deleteActivity'])
 </script>
 
 <template>
 	<div>
 		<ul class="divide-y">
-			<ActivityItem v-for="activity in activities" :key="activity" :activity="activity" />
+			<ActivityItem
+			  v-for="activity in activities"
+			  :key="activity"
+			  :activity="activity"
+				@delete="emit('deleteActivity', activity)"
+			/>
 		</ul>
 	</div>
 </template>

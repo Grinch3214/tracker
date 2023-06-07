@@ -24,6 +24,10 @@ function deleteActivity(activity) {
 	activities.value.splice(activities.value.indexOf(activity), 1)
 }
 
+function createActivity(activity) {
+	activities.value.push(activity)
+}
+
 </script>
 
 <template>
@@ -33,7 +37,7 @@ function deleteActivity(activity) {
   />
 	<main class="flex flex-grow flex-col">
 		<TheTimeLine v-show="currentPage === PAGE_TIMELINE" :timeline-items="timelineItems" :activity-select-options="activitySelectOptions" />
-		<TheActivities v-show="currentPage === PAGE_ACTIVITIES" :activities="activities" @delete-activity="deleteActivity" />
+		<TheActivities v-show="currentPage === PAGE_ACTIVITIES" :activities="activities" @delete-activity="deleteActivity" @create-activity="createActivity" />
 		<TheProgress v-show="currentPage === PAGE_PROGRESS" />
 	</main>
 	<TheNav :current-page="currentPage" @navigate="goTo($event)" />

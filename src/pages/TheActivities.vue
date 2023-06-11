@@ -1,6 +1,7 @@
 <script setup>
 import ActivityItem from '../components/ActivityItem.vue'
 import TheActivityForm from '../components/TheActivityForm.vue'
+import TheActivitiesEmptyState from '../components/TheActivitiesEmptyState.vue'
 
 defineProps({
 	activities: {
@@ -14,7 +15,7 @@ const emit = defineEmits(['deleteActivity', 'createActivity'])
 
 <template>
 	<div class="flex flex-col grow">
-		<ul class="divide-y grow">
+		<ul v-if="activities.length" class="divide-y grow">
 			<ActivityItem
 			  v-for="activity in activities"
 			  :key="activity"
@@ -22,6 +23,7 @@ const emit = defineEmits(['deleteActivity', 'createActivity'])
 				@delete="emit('deleteActivity', activity)"
 			/>
 		</ul>
+		<TheActivitiesEmptyState v-else />
 		<TheActivityForm @submit="emit('createActivity', $event)" />
 	</div>
 </template>

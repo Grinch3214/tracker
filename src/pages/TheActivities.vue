@@ -13,8 +13,8 @@ const emit = defineEmits(['deleteActivity', 'createActivity'])
 </script>
 
 <template>
-	<div>
-		<ul class="divide-y">
+	<div class="flex flex-col grow">
+		<ul class="divide-y grow">
 			<ActivityItem
 			  v-for="activity in activities"
 			  :key="activity"

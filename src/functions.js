@@ -4,7 +4,8 @@ import {
 	PAGE_TIMELINE,
 	HOURS_IN_DAY,
 	SECONDS_IN_HOUR
-} from './constans';
+} from './constans'
+import { isNull } from './validations'
 
 export function normalizePageHash() {
 	const hash = window.location.hash.slice(1)
@@ -14,6 +15,10 @@ export function normalizePageHash() {
 	}
 	window.location.hash = PAGE_TIMELINE
 	return PAGE_TIMELINE
+}
+
+export function normalizeSelectValue(value) {
+  return isNull(value) || isNaN(value) ? value : +value
 }
 
 export function generateTimeLineItems() {

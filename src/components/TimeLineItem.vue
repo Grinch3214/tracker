@@ -15,6 +15,7 @@ defineProps({
 })
 
 const selectedActivityId = ref(null)
+console.log(selectedActivityId)
 </script>
 
 <template>

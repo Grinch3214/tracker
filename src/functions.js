@@ -25,7 +25,10 @@ export function generateTimeLineItems() {
 	const timeloneItems = []
 
 	for (let hour = 0; hour < HOURS_IN_DAY; hour++) {
-		timeloneItems.push({ hour })
+		timeloneItems.push({
+			hour,
+			activityId: null
+		})
 	}
 
 	return timeloneItems

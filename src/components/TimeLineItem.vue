@@ -15,7 +15,6 @@ defineProps({
 })
 
 const selectedActivityId = ref(null)
-console.log(selectedActivityId)
 </script>
 
 <template>
@@ -23,6 +22,6 @@ console.log(selectedActivityId)
 		class="relative flex flex-col gap-2 border-t border-gray-200 py-10 px-4"
 	>
 		<TimelineHour :hour="timelineItem.hour" />
-		<BaseSelect :selected="selectedActivityId" :options="activitySelectOptions" placeholder="Rest" @select="selectedActivityId = $event" />
+		<BaseSelect :selected="timelineItem.activityId" :options="activitySelectOptions" placeholder="Rest" @select="selectedActivityId = $event" />
 	</li>
 </template>

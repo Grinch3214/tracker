@@ -15,7 +15,6 @@ defineProps({
 const emit = defineEmits(['delete'])
 
 const secondsToComplete = ref(0)
-console.log(secondsToComplete)
 </script>
 
 <template>

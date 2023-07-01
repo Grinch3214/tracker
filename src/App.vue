@@ -28,6 +28,10 @@ function createActivity(activity) {
 	activities.value.push(activity)
 }
 
+function setTimeLineItemActivity({ timelineItem, activity }) {
+	timelineItem.activityId = activity.id
+}
+
 </script>
 
 <template>
@@ -36,7 +40,13 @@ function createActivity(activity) {
 		@go-to-progress="goTo(PAGE_PROGRESS)"
   />
 	<main class="flex flex-grow flex-col">
-		<TheTimeLine v-show="currentPage === PAGE_TIMELINE" :timeline-items="timelineItems" :activity-select-options="activitySelectOptions" />
+		<TheTimeLine
+		  v-show="currentPage === PAGE_TIMELINE"
+		  :activity-select-options="activitySelectOptions"
+		  :timeline-items="timelineItems"
+			:activities="activities"
+			@set-time-line-item-activity="setTimeLineItemActivity"
+		/>
 		<TheActivities v-show="currentPage === PAGE_ACTIVITIES" :activities="activities" @delete-activity="deleteActivity" @create-activity="createActivity" />
 		<TheProgress v-show="currentPage === PAGE_PROGRESS" />
 	</main>

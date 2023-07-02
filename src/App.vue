@@ -29,7 +29,6 @@ function createActivity(activity) {
 }
 
 function setTimeLineItemActivity({ timelineItem, activity }) {
-	console.log('activity setTimeLineItemActivity', activity)
 	timelineItem.activityId = activity.id
 }
 

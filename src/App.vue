@@ -21,6 +21,11 @@ const activities = ref(generateActivities())
 const activitySelectOptions = computed(() => generateActivitySelectOptions(activities.value))
 
 function deleteActivity(activity) {
+	timelineItems.forEach((timelineItem) => {
+		if(timelineItem.activityId === activity.id) {
+			timelineItem.activityId = null
+		}
+	})
 	activities.value.splice(activities.value.indexOf(activity), 1)
 }
 

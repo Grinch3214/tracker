@@ -21,6 +21,7 @@ const activities = ref(generateActivities())
 const activitySelectOptions = computed(() => generateActivitySelectOptions(activities.value))
 
 function deleteActivity(activity) {
+	console.log(activity)
 	timelineItems.forEach((timelineItem) => {
 		if(timelineItem.activityId === activity.id) {
 			timelineItem.activityId = null

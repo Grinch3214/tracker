@@ -17,7 +17,7 @@ defineProps({
 })
 
 const emit = defineEmits({
-	setTimeLineItemActivity({ timelineItem, activity }) {
+	setTimeLineItemActivity({timelineItem, activity}) {
 		return [timelineItem, activity ].every(Boolean)
 	}
 })

@@ -14,14 +14,14 @@ function goTo(page) {
 	currentPage.value = page
 }
 
-const timelineItems = generateTimeLineItems()
+const timelineItems = ref(generateTimeLineItems())
 
 const activities = ref(generateActivities())
 
 const activitySelectOptions = computed(() => generateActivitySelectOptions(activities.value))
 
 function deleteActivity(activity) {
-	timelineItems.forEach((timelineItem) => {
+	timelineItems.value.forEach((timelineItem) => {
 		if(timelineItem.activityId === activity.id) {
 			timelineItem.activityId = null
 		}
@@ -34,7 +34,7 @@ function createActivity(activity) {
 }
 
 function setTimeLineItemActivity({ timelineItem, activity }) {
-	timelineItem.activityId = activity.id
+	timelineItem.activityId = activity?.id || null
 }
 
 </script>

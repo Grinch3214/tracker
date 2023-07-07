@@ -22,6 +22,7 @@ const activitySelectOptions = computed(() => generateActivitySelectOptions(activ
 
 function deleteActivity(activity) {
 	timelineItems.value.forEach((timelineItem) => {
+		console.log(timelineItems.value)
 		if(timelineItem.activityId === activity.id) {
 			timelineItem.activityId = null
 		}

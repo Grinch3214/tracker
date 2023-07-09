@@ -37,6 +37,10 @@ function setTimeLineItemActivity({ timelineItem, activity }) {
 	timelineItem.activityId = activity?.id || null
 }
 
+function setActivitySecondsToComplete(activity, secondsToComplete) {
+	activity.secondsToComplete = secondsToComplete
+}
+
 </script>
 
 <template>
@@ -52,7 +56,13 @@ function setTimeLineItemActivity({ timelineItem, activity }) {
 			:activities="activities"
 			@set-time-line-item-activity="setTimeLineItemActivity"
 		/>
-		<TheActivities v-show="currentPage === PAGE_ACTIVITIES" :activities="activities" @delete-activity="deleteActivity" @create-activity="createActivity" />
+		<TheActivities
+		  v-show="currentPage === PAGE_ACTIVITIES"
+		  :activities="activities"
+		  @create-activity="createActivity"
+		  @delete-activity="deleteActivity"
+			@set-activity-seconds-to-complete="setActivitySecondsToComplete"
+		/>
 		<TheProgress v-show="currentPage === PAGE_PROGRESS" />
 	</main>
 	<TheNav :current-page="currentPage" @navigate="goTo($event)" />

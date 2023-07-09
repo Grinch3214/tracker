@@ -9,7 +9,11 @@ defineProps({
 		type: Array
 	}
 })
-const emit = defineEmits(['deleteActivity', 'createActivity'])
+const emit = defineEmits(['deleteActivity', 'createActivity', 'setActivitySecondsToComplete'])
+
+function setSecondsToComplete(activity, secondsToComplete) {
+	emit('setActivitySecondsToComplete', activity, secondsToComplete)
+}
 
 </script>
 
@@ -21,6 +25,7 @@ const emit = defineEmits(['deleteActivity', 'createActivity'])
 			  :key="activity.id"
 			  :activity="activity"
 				@delete="emit('deleteActivity', activity)"
+				@set-seconds-to-complete="setSecondsToComplete(activity, $event)"
 			/>
 		</ul>
 		<TheActivitiesEmptyState v-else />

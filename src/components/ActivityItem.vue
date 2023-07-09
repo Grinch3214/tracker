@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 import { TrashIcon } from '@heroicons/vue/24/outline'
 import { PERIOD_SELECT_OPTIONS, BUTTON_TYPE_DANGER } from '../constans'
 import BaseButton from '../components/BaseButton.vue'
@@ -12,9 +11,8 @@ defineProps({
 	}
 })
 
-const emit = defineEmits(['delete'])
+const emit = defineEmits(['delete', 'setSecondsToComplete'])
 
-const secondsToComplete = ref(0)
 </script>
 
 <template>
@@ -28,8 +26,8 @@ const secondsToComplete = ref(0)
 		<div>
 			<BaseSelect
 				:options="PERIOD_SELECT_OPTIONS"
-				:selected="secondsToComplete"
-				@select="secondsToComplete = $event"
+				:selected="activity.secondsToComplete"
+				@select="emit('setSecondsToComplete', $event)"
 				class="font-mono"
 				placeholder="h:mm"
 			/>

@@ -38,6 +38,7 @@ function setTimeLineItemActivity({ timelineItem, activity }) {
 }
 
 function setActivitySecondsToComplete(activity, secondsToComplete) {
+	console.log(secondsToComplete)
 	activity.secondsToComplete = secondsToComplete
 }
 

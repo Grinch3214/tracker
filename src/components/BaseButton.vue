@@ -5,7 +5,6 @@ const typeClasses = {
 	[BUTTON_TYPE_NEUTRAL]: 'bg-gray-100 enabled:hover:bg-gray-200',
 	[BUTTON_TYPE_DANGER]: 'bg-red-500 enabled:hover:bg-red-600 text-white'
 }
-console.log(typeClasses)
 </script>
 
 <script setup>

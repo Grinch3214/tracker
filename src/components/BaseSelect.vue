@@ -26,7 +26,6 @@ const emit = defineEmits({
 const isNotSelected = computed(() => isUndefinedOrNull(props.selected))
 
 function select(value) {
-	console.log(value)
 	emit('select', normalizeSelectValue(value))
 }
 </script>

@@ -33,7 +33,7 @@ function createActivity(activity) {
 	activities.value.push(activity)
 }
 
-function setTimeLineItemActivity({ timelineItem, activity }) {
+function setTimeLineItemActivity(timelineItem, activity) {
 	timelineItem.activityId = activity?.id || null
 }
 

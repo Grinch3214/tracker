@@ -20,7 +20,6 @@ const props = defineProps({
 const emit = defineEmits('selectActivity')
 
 function selectActivity(id) {
-	console.log(id)
 	emit('selectActivity', props.activities.find((activity) => activity.id === id) || null)
 }
 

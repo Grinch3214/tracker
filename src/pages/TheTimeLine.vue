@@ -32,7 +32,7 @@ const emit = defineEmits({
 				:timeline-item="timelineItem"
 				:activity-select-options="activitySelectOptions"
 				:activities="activities"
-				@select-activity="emit('setTimeLineItemActivity', { timelineItem, activity: $event })"
+				@select-activity="emit('setTimeLineItemActivity', timelineItem, $event)"
 			/>
 		</ul>
 	</div>

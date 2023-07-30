@@ -1,10 +1,10 @@
 <script setup>
-import { PAGE_TIMELINE } from '../constans'; 
+import { PAGE_TIMELINE } from '../constants'
+import { navigate } from '../router'
 </script>
 
 <template>
-	<a :href="`#${PAGE_TIMELINE}`" class="inline-flex items-center my-2">
-		<img src="../assets/img/track-svgrepo-com.svg" alt="Logo" width="50" height="50">
-		<span class="pl-1 font-bold text-1xl">OnTrack</span>
-	</a>
+  <a :href="`#${PAGE_TIMELINE}`" @click="navigate(PAGE_TIMELINE)">
+    <img src="../assets/img/logo.png" alt="Logo" class="h-9" />
+  </a>
 </template>

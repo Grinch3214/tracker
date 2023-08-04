@@ -4,6 +4,7 @@ import { generatePeriodSelectOptions } from './functions'
 export const PAGE_TIMELINE = 'timeline'
 export const PAGE_ACTIVITIES = 'activities'
 export const PAGE_PROGRESS = 'progress'
+console.log(PAGE_ACTIVITIES)
 
 export const NAV_ITEMS = [
   {

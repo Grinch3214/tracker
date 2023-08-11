@@ -16,6 +16,7 @@ async function submit() {
   })
 
   name.value = ''
+	console.log(name.value )
 
   await nextTick()
 

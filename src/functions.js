@@ -1,8 +1,19 @@
-import { MILLISECONDS_IN_SECOND, SECONDS_IN_MINUTE, MINUTES_IN_HOUR } from './constants'
+import {
+  MILLISECONDS_IN_SECOND,
+  SECONDS_IN_MINUTE,
+  MINUTES_IN_HOUR,
+  HUNDRED_PERCENT,
+  MEDIUM_PERCENT,
+  LOW_PERCENT
+} from './constants'
 import { isNull } from './validators'
 
 export function currentHour() {
   return new Date().getHours()
+}
+
+export function formatSecondsWithSign(seconds) {
+  return `${seconds >= 0 ? '+' : '-'}${formatSeconds(seconds)}`
 }
 
 export function formatSeconds(seconds) {
@@ -17,6 +28,14 @@ export function formatSeconds(seconds) {
 
 export function normalizeSelectValue(value) {
   return isNull(value) || isNaN(value) ? value : +value
+}
+
+export function getProgressColorClass(percentage) {
+  if (percentage < LOW_PERCENT) return 'bg-red-500'
+  if (percentage < MEDIUM_PERCENT) return 'bg-yellow-500'
+  if (percentage < HUNDRED_PERCENT) return 'bg-blue-500'
+
+  return 'bg-green-500'
 }
 
 export function id() {
@@ -35,7 +54,9 @@ export function generatePeriodSelectOptions() {
 }
 
 function generatePeriodSelectOptionsLabel(periodInMinutes) {
-  const hours = Math.floor(periodInMinutes / MINUTES_IN_HOUR).toString().padStart(2, 0)
+  const hours = Math.floor(periodInMinutes / MINUTES_IN_HOUR)
+    .toString()
+    .padStart(2, 0)
   const minutes = (periodInMinutes % MINUTES_IN_HOUR).toString().padStart(2, 0)
 
   return `${hours}:${minutes}`
